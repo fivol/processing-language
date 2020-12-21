@@ -2,7 +2,7 @@
 Plane plane;
 void setup(){
   frameRate(100);
-  size(1200,800);
+  size(1200, 800);
   //dots=new ArrayList<Dot>();
   int n=120;
   plane = new Plane(n);
