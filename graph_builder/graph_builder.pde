@@ -68,7 +68,6 @@ void draw(){
     
     strokeWeight(4);
     stroke(255);
-    //println("!!",l.x,l.y);
     line(vert.get((int)l.x).x,vert.get((int)l.x).y,
     vert.get((int)l.y).x,vert.get((int)l.y).y);
   }
