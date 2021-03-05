@@ -5,6 +5,7 @@ ControlP5 cp5;
 ArrayList<PVector>vert;
 ArrayList<PVector>lines;
 Textarea myTextarea;
+
 int find(int x,int y){
   for(int i=0;i<vert.size();i++){
     PVector v=vert.get(i);
@@ -13,6 +14,7 @@ int find(int x,int y){
   return -1;
 }
 boolean show=true;
+
 void setup(){
   size(1000,600);
   vert=new ArrayList<PVector>();
@@ -26,15 +28,14 @@ void setup(){
      .setPosition(width-120,10)
      .setSize(80,500)
      .setFont(font)
-     //.isCollapse(true)
      .setColor(color(255))
      ;
   cp5.addButton("Clear")
-     //.setValue(0)
      .setPosition(10,10)
      .setSize(200,19)
      ;
 }
+
 int diametr=20;
 int min_dist=50;
 boolean drag=false;
@@ -43,6 +44,7 @@ PVector clicked;
 int clicked_vert;
 String str="";
 boolean delete=false;
+
 void draw(){
   textSize(30);
   background(0);
@@ -60,7 +62,6 @@ void draw(){
     vert.get(clicked_vert).y=mouseY;
   }
   str=str(vert.size())+" "+str(lines.size())+"\n";
-  //println("loop",lines.size());
   for(int i=0;i<lines.size();i++){
     PVector l=lines.get(i);
     str+=str((int)l.x+1)+" "+str((int)l.y+1)+"\n";
@@ -82,22 +83,23 @@ void draw(){
     fill(255);
     text(str(i+1), v.x-diametr, v.y-diametr);
   }
+  
   if(show){
     show=false;
     myTextarea.setText(str);
     println(str.replace('\n', ' '));
   }
 }
+
 public void Clear() {
   delete=true;
-  //println(vert.size(),"size");
 }
 void new_vert(int x,int y){
   
   vert.add(new PVector(x,y));
 }
+
 void new_line(int x,int y){
-  //println(x,y);
   lines.add(new PVector(x,y));
 }
 int find_line(int x,int y){
@@ -107,6 +109,7 @@ int find_line(int x,int y){
   }
   return -1;
 }
+
 void mouseReleased(){
   show=true;
   
@@ -129,9 +132,6 @@ void mouseReleased(){
 }
 
 void mousePressed(){
-  
-  
-  //println(mouseButton);
   int x=mouseX;
   int y=mouseY;
   clicked_vert=find(x,y);
@@ -160,7 +160,6 @@ void mousePressed(){
           i++;
         }
       }
-      //println(lines.size(),"size");
     }
   }else if(mouseButton==3){
     double x1,x2,x3,y1,y2,y3,a,b;
